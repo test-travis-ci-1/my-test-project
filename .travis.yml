@@ -12,6 +12,18 @@ stages:
   - build
   - test
 
+env:
+- NODE_ENV=production
+- NODE_ENV=development
+matrix:
+  include:
+    - script:
+      - npm run test-1
+      - npm run test-2
+    - script:
+      - npm run tslint
+
+
 jobs:
   include:    
     - stage: build
@@ -22,21 +34,21 @@ jobs:
       env: NODE_ENV=development
       script: npm run build
 
-    - stage: test
-      env: JOB="Mocha unit tests"
-      script: 
-        - npm run test-1
-        - npm run test-2
-      after_success:
-        - npm run coverage
+    # - stage: test
+    #   env: JOB="Mocha unit tests"
+    #   script: 
+    #     - npm run test-1
+    #     - npm run test-2
+    #   after_success:
+    #     - npm run coverage
 
-    - stage: test
-      env: JOB="Tslint"
-      script: npm run tslint
+    # - stage: test
+    #   env: JOB="Tslint"
+    #   script: npm run tslint
 
-    - stage: test
-      env: JOB="Tests with real-world data"
-      if: NOT type = pull_request
-      script:
-      - npm run test-3
+    # - stage: test
+    #   env: JOB="Tests with real-world data"
+    #   if: NOT type = pull_request
+    #   script:
+    #   - npm run test-3
         
