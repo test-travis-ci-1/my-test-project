@@ -17,7 +17,7 @@ node_js:
 
 jobs:
   include:
-    - if: NOT fork
+    - if: branch = master
       script:
       - npm run test-3
   - script:
