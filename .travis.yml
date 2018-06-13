@@ -10,7 +10,7 @@ branches:
 
 stages:
   - build
-  - test and tslint
+  - test
 
 jobs:
   include:
@@ -18,14 +18,18 @@ jobs:
       script: npm run build
 
     - stage: test
+      env: JOB="Mocha unit tests"
       script: 
         - npm run test-1
         - npm run test-2
+        
 
     - stage: test
-      script: npm run tslint
+      env: JOB="mocha unit tests"
+      script: npm run lint
 
     - stage: test
+      env: JOB="tslint"
       if: NOT type = pull_request
       script:
       - npm run test-3
