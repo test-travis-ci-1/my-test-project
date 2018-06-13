@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test-1": "mocha -r ts-node/register tests/1.spec.ts",
-    "test-2": "mocha -r ts-node/register tests/2.spec.ts"
+    "test-2": "mocha -r ts-node/register tests/2.spec.ts",
+    "test-3": "mocha -r ts-node/register tests/3.spec.ts"
   },
   "repository": {
     "type": "git",

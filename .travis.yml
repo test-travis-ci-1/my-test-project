@@ -8,6 +8,19 @@ branches:
 node_js:
   node
 
-script:
-  - npm run test-1
-  - npm run test-2
+# matrix:
+#   include:
+#   - script:
+#     - npm run test-1
+#   - script:
+#     - npm run test-2
+
+jobs:
+  include:
+    - if: branch = master
+      script:
+      - npm run test-3
+    - script:
+      - npm run test-1
+    - script:
+      - npm run test-2
