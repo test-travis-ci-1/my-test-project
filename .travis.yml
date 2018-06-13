@@ -20,7 +20,7 @@ jobs:
     - if: branch = master
       script:
       - npm run test-3
-  - script:
-    - npm run test-1
-  - script:
-    - npm run test-2
+    - script:
+      - npm run test-1
+    - script:
+      - npm run test-2
