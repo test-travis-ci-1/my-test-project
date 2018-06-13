@@ -9,6 +9,7 @@ node_js:
   node
 
 matrix:
+  include: 
   - script:
     - npm run test-1
   - script:
