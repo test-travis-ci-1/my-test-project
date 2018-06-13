@@ -8,8 +8,6 @@ branches:
 node_js:
   node
 
-jobs
-
 matrix:
  - script:
     - npm run test-1
