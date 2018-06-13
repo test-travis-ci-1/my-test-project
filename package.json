@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register tests/**/*.spec.ts"
+    "test-1": "mocha -r ts-node/register tests/1.spec.ts",
+    "test-2": "mocha -r ts-node/register tests/2.spec.ts"
   },
   "repository": {
     "type": "git",
