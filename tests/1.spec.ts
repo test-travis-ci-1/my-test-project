@@ -10,6 +10,6 @@ describe('Spec 1', () => {
     });
 
     it('test 3', () => {
-        expect(1).to.eql(1);
+        expect(1).to.eql(10);
     });
 });
