@@ -12,11 +12,6 @@ stages:
   - build
   - test
 
-env: 
-  matrix:
-  - NODE_ENV=production
-  - NODE_ENV=development
-
 jobs:
   include:    
     - stage: build
