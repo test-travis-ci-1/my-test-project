@@ -13,8 +13,9 @@ stages:
   - test
 
 env: 
-  global:
+  matrix:
   - NODE_ENV=production
+  - NODE_ENV=development
 
 jobs:
   include:    
