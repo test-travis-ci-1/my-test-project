@@ -8,8 +8,18 @@ branches:
 node_js:
   node
 
-matrix:
-  include: 
+# matrix:
+#   include:
+#   - script:
+#     - npm run test-1
+#   - script:
+#     - npm run test-2
+
+jobs:
+  include:
+    - if: NOT fork
+      script:
+        - npm run test-3
   - script:
     - npm run test-1
   - script:
