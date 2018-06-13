@@ -18,7 +18,8 @@ jobs:
     #   if: NOT branch = master
     #   - NODE_ENV=development
     - env:
-      - NODE_ENV=production
+      global:
+        - NODE_ENV=production
 
     - stage: build
       script: npm run build
