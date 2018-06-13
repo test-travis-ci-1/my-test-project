@@ -11,17 +11,16 @@ branches:
 stages:
   - build
   - test
-
 env:
 - NODE_ENV=production
 - NODE_ENV=development
 matrix:
   include:
-    - script:
-      - npm run test-1
-      - npm run test-2
-    - script:
-      - npm run tslint
+  - script:
+    - npm run test-1
+    - npm run test-2
+  - script:
+    - npm run tslint
 
 
 jobs:
