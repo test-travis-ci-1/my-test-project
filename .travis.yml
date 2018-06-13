@@ -3,6 +3,12 @@ language: node_js
 node_js:
   node
 
+env:
+  global:
+    - NODE_ENV=production
+    - NODE_ENV=development
+
+
 branches:
   only:
     - master
@@ -17,11 +23,7 @@ jobs:
     # - env:
     #   if: NOT branch = master
     #   - NODE_ENV=development
-    - env:
-      global:
-        - NODE_ENV=production
-        - NODE_ENV=development
-
+    
     - stage: build
       script: npm run build
 
