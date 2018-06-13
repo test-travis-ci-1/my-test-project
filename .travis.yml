@@ -25,11 +25,11 @@ jobs:
         
 
     - stage: test
-      env: JOB="mocha unit tests"
-      script: npm run lint
+      env: JOB="Tslint"
+      script: npm run tslint
 
     - stage: test
-      env: JOB="tslint"
+      env: JOB="Tests with real-world data"
       if: NOT type = pull_request
       script:
       - npm run test-3
