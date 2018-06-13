@@ -10,8 +10,7 @@ branches:
 
 stages:
   - build
-  - test
-  - tslint
+  - test and tslint
 
 jobs:
   include:
@@ -24,10 +23,10 @@ jobs:
         - npm run test-2
 
     - stage: test
+      script: npm run tslint
+
+    - stage: test
       if: NOT type = pull_request
       script:
       - npm run test-3
-    
-    - stage: tslint
-      script: npm run tslint
         
