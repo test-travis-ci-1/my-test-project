@@ -17,9 +17,9 @@ node_js:
 
 jobs:
   include:
-    - if: NOT fork
-      script:
-        - npm run test-3
+    #- if: NOT fork
+  - script:
+    - npm run test-3
   - script:
     - npm run test-1
   - script:
