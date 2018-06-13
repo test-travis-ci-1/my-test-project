@@ -3,10 +3,6 @@ language: node_js
 node_js:
   node
 
-env:
-  - NODE_ENV=production
-  - NODE_ENV=development
-
 branches:
   only:
     - master
@@ -17,16 +13,18 @@ stages:
   - test
 
 jobs:
-  include:
-    # - env:
-    #   if: NOT branch = master
-    #   - NODE_ENV=development
-    
+  include:    
     - stage: build
       script: npm run build
+      env:     
+        - NODE_ENV=production
+        - NODE_ENV=development
 
     - stage: test
-      env: JOB="Mocha unit tests"
+      env: 
+        - JOB="Mocha unit tests"
+        - NODE_ENV=production
+        - NODE_ENV=development
       script: 
         - npm run test-1
         - npm run test-2
