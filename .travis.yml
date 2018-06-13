@@ -23,7 +23,7 @@ jobs:
       if: NOT branch = master
       - NODE_ENV=development
 
-    - env
+    - env:
       - NODE_ENV=production
 
     - stage: build
