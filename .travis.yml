@@ -9,7 +9,7 @@ node_js:
   node
 
 matrix:
- - script:
+  - script:
     - npm run test-1
   - script:
     - npm run test-2
