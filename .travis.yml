@@ -1,26 +1,33 @@
 language: node_js
 
+node_js:
+  node
+
 branches:
   only:
     - master
     - dev
 
-node_js:
-  node
-
-# matrix:
-#   include:
-#   - script:
-#     - npm run test-1
-#   - script:
-#     - npm run test-2
+stages:
+  - build
+  - test
+  - tslint
 
 jobs:
   include:
-    - if: NOT type = pull_request
+    - stage: build
+      script: npm run build
+
+    - stage: test
+      script: 
+        - npm run test-1
+        - npm run test-2
+
+    - stage: test
+      if: NOT type = pull_request
       script:
       - npm run test-3
-    - script:
-      - npm run test-1
-    - script:
-      - npm run test-2
+    
+    - stage: tslint
+      script: npm run tslint
+        
