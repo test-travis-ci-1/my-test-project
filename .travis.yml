@@ -12,15 +12,15 @@ stages:
   - build
   - test
 
-env: 
-  matrix:
-  - NODE_ENV=production
-  - NODE_ENV=development
-
 jobs:
   include:    
     - stage: build
+      env: NODE_ENV=production
       script: npm run build      
+
+    - stage: build
+      env: NODE_ENV=development
+      script: npm run build
 
     - stage: test
       env: JOB="Mocha unit tests"
