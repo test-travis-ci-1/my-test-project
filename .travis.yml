@@ -17,7 +17,7 @@ node_js:
 
 jobs:
   include:
-    - if: branch = master
+    - if: NOT type = pull_request
       script:
       - npm run test-3
     - script:
