@@ -3,11 +3,6 @@ language: node_js
 node_js:
   node
 
-env:
-  - NODE_ENV=development
-  - NODE_ENV=development
-
-
 branches:
   only:
     - master
@@ -19,10 +14,9 @@ stages:
 
 jobs:
   include:
-    - env:
-      if: NOT branch = master
-      - NODE_ENV=development
-
+    # - env:
+    #   if: NOT branch = master
+    #   - NODE_ENV=development
     - env:
       - NODE_ENV=production
 
