@@ -15,6 +15,6 @@ describe('Spec 1', () => {
 
     it('test 4', () => {
         // tslint:disable-next-line:no-unused-expression
-        expect(process.env.KEY).to.be.not.undefined;
+        expect(process.env.KEY).to.include('my');
     });
 });
