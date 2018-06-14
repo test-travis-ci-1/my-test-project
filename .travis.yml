@@ -59,7 +59,7 @@ jobs:
       script: npm run tslint
 
     - stage: test
-      if: (NOT type = pull_request) AND (NOT branch = master)
+      if: (NOT fork AND (NOT branch = master)
       env:
         - JOB="Tests with real-world data"
         - NODE_ENV=production
@@ -67,7 +67,7 @@ jobs:
       - npm run test-3
 
     - stage: test
-      if: NOT type = pull_request
+      if: NOT fork
       env:
         - JOB="Tests with real-world data"
         - NODE_ENV=developement
