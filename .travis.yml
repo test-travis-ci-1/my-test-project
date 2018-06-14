@@ -13,64 +13,25 @@ stages:
   - test
 
 jobs:
-  include:    
+  include:
     - stage: build
-      env: 
-        - JOB="Build"
-        - NODE_ENV=production
-      script: npm run build      
-
-    - stage: build
-      if: NOT branch = master
-      env: 
-        - JOB="Build"
-        - NODE_ENV=developement
+      env: JOB="Build"
       script: npm run build
 
     - stage: test
-      env: 
-        - JOB="Mocha unit tests"
-        - NODE_ENV=production
+      env: JOB="Mocha unit tests"
       script: 
         - npm run test-1
         - npm run test-2
       after_success:
         - npm run coverage
 
-    - stage: test    
-      if: NOT branch = master
-      env: 
-        - JOB="Mocha unit tests"
-        - NODE_ENV=developement
-      script: 
-        - npm run test-1
-        - npm run test-2
-
     - stage: test
-      env:
-        - JOB="Tslint"
-        - NODE_ENV=production
+      env: JOB="Tslint"
       script: npm run tslint
-
-    - stage: test
-      env:
-        - JOB="Tslint"
-        - NODE_ENV=developement
-      script: npm run tslint
-
-    - stage: test
-      if: (NOT fork AND (NOT branch = master)
-      env:
-        - JOB="Tests with real-world data"
-        - NODE_ENV=production
-      script:
-      - npm run test-3
 
     - stage: test
       if: NOT fork
-      env:
-        - JOB="Tests with real-world data"
-        - NODE_ENV=developement
-      script:
-      - npm run test-3
+      env: JOB="Tests with real-world data"
+      script:  npm run test-3
         
