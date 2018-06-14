@@ -23,6 +23,7 @@ jobs:
       script: 
         - npm run test-1
         - npm run test-2
+        - npm run test-3
       after_success:
         - npm run coverage
 
