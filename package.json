@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {    
+  "scripts": {
     "build": "tsc",
     "tslint": "tslint -p ./tsconfig.json",
     "test-1": "mocha -r ts-node/register tests/1.spec.ts",
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/test-travis-ci-1/my-test-project#readme",
   "dependencies": {
+    "@types/node": "^10.3.3",
     "mocha": "^5.2.0",
     "typescript": "^2.9.1"
   },
