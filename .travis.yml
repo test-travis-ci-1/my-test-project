@@ -1,26 +1,37 @@
 language: node_js
 
+node_js:
+  node
+
 branches:
   only:
     - master
     - dev
 
-node_js:
-  node
-
-# matrix:
-#   include:
-#   - script:
-#     - npm run test-1
-#   - script:
-#     - npm run test-2
+stages:
+  - build
+  - test
 
 jobs:
   include:
-    - if: NOT type = pull_request
-      script:
-      - npm run test-3
-    - script:
-      - npm run test-1
-    - script:
-      - npm run test-2
+    - stage: build
+      env: JOB="Build"
+      script: npm run build
+
+    - stage: test
+      env: JOB="Mocha unit tests"
+      script: 
+        - npm run test-1
+        - npm run test-2
+      after_success:
+        - npm run coverage
+
+    - stage: test
+      env: JOB="Tslint"
+      script: npm run tslint
+
+    - stage: test
+      if: NOT fork
+      env: JOB="Tests with real-world data"
+      script:  npm run test-3
+        
